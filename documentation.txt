@@ -6,31 +6,3 @@ Part A: Written Documentation
 3. The calculations are performed by the evaluate() method of the expression tree object. This method first performs integer-ization of the operands by recording and then multiplying to the highest number of decimal places in order to avoid the pitfalls of floating point subtraction(mainly the .3-.2 problem). It then calls the appropriate method on the numbers by finding the method in a math dictionary whose keys are string representations of the operators(“*”, “/”, etc.).Finally, it multiplies by the highest number of decimals recorded earlier and returns the value, rounded to up to 8 significant figures, depending on the character length of the number and its magnitude.
 4. The program cannot properly handle large numbers due to its reliance on floating point numbers as opposed to long int(which also has its limitations on number size) or long long int on a more exotic system than a standard macbook. More limited is its presentation and accessibility which are both limited by its existence as a CLI program and not a GUI. The average person will probably either not want to or/and be unwilling to interact with it in light of all of the impressively designed alternatives.
 5. An improvement that could easily improve the overall usefulness of the program would be to add a GUI so that it is more user friendly and accessible to a greater audience. Further, it could also perform more operations, such as evaluate trigonometric functions and logarithms. This would make it more useful from an academic perspective, which is precisely the target audience for such an application.
-Part B: Pseudocode
-
-
-MAIN
-
-
-Print “Arithmetic calculator, type ‘:q!’ and press enter to quit.”
-
-
-while(true):
-Print “Enter expression: ”
-Cin >> string expression
-If exitCodeFound(expression)
-        break;
-eT = new expressionTree(expression)
-double n = eT.evaluate()
-Print “ = “ + n
-Print “Thanks for using my calculator, goodbye!”
-ROUTINES & SUBROUTINES
-
-
-exitCodeFound(str):
-        If str.match(**regex for :q!**):
-                Return true
-        Return false
-
-
-expressionTree:
